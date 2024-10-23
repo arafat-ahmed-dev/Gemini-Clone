@@ -2,22 +2,22 @@ import React, { useState } from "react";
 import assets from "../assets/assets";
 
 const SideLayout = () => {
-  const [isClick, setIsClick] = useState(false);
+  const [isClick, setIsClick] = useState(true);
   return (
-    <div className={isClick ? "w-1/7" : "w-1/5 "}>
-      <div className="w-full h-screen bg-gray-700 text-white fill-white px-5">
+    <div className={isClick ? "w-1/7 hidden sm:block" : "w-1/5 "}>
+      <div className="w-full h-screen bg-gray-700 text-white fill-white px-5 text-[13px] sm:text-[15px]">
         <div className="h-1/6 flex flex-col justify-between pt-5 cursor-pointer">
           <div className="w-full px-3">
             <img
               onClick={() => setIsClick(!isClick)}
               src={assets.menu}
               alt=""
-              className="w-5 cursor-pointer fill-blue-500 "
+              className="w-5 cursor-pointer fill-blue-500"
             />
           </div>
-          <div className="w-fit h-fit flex items-center justify-between bg-[#32373d] gap-1 rounded-full p-3">
-            <img src={assets.plus} className="w-5 fill-blue-500 mx-1" />
-            {!isClick ? <p>New Chart</p> : null}
+          <div className="w-fit h-fit flex items-center justify-between bg-[#32373d] gap-1 md:rounded-full rounded-lg p-3 sm:my-4">
+            <img src={assets.plus} className="w-3 sm:w-4 fill-blue-500 mx-1" />
+            {!isClick ? <p className="text-[12px]">New Chart</p> : null}
           </div>
         </div>
         <div className={isClick? "hidden":"h-1/2 pt-6"}>
